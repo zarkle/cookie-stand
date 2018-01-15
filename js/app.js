@@ -139,6 +139,38 @@ var capitolHillStore = {
   }
 };
 
+var alkiStore = {
+  minHourlyCust: 2,
+  maxHourlyCust: 16,
+  avgCookiesPerCust: 4.6,
+  hourlySales: [],
+  total: 0,
+  avgCookiesPerHour: function() {
+    return Math.ceil(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
+  },
+  cookiesPerHour: function() {
+    return parseInt(this.avgCookiesPerCust * this.avgCookiesPerHour());
+  },
+  salesPerHour: function() {
+    for (var i = 0; i < hours.length; i++) {
+      var cookies = this.cookiesPerHour();
+      this.hourlySales.push(cookies);
+      this.total += cookies;
+    }
+  },
+  render: function() {
+    var ulEl = document.getElementById('alki');
+    for (var j = 0; j < hours.length; j++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = hours[j] + ': ' + this.hourlySales[j] + ' cookies';
+      ulEl.appendChild(liEl);
+    }
+    liEl = document.createElement('li');
+    liEl.textContent = 'Total: ' + this.total;
+    ulEl.appendChild(liEl);
+  }
+};
+
 // run hourly sales method to generate hourly sales array
 firstAndPikeStore.salesPerHour();
 // render list
@@ -150,3 +182,5 @@ seattleCenterStore.salesPerHour();
 seattleCenterStore.render();
 capitolHillStore.salesPerHour();
 capitolHillStore.render();
+alkiStore.salesPerHour();
+alkiStore.render();
