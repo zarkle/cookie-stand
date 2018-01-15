@@ -6,7 +6,7 @@ var firstAndPikeStore = {
   minHourCust: 23,
   maxHourCust: 65,
   avgCookiesPerCust: 6.3,
-  results: [],
+  hourlySales: [],
   //random number generated for average customers per hour
   avgCustPerHour: function() {
     return Math.ceil(Math.random() * (this.maxHourCust - this.minHourCust) + this.minHourCust);
@@ -15,10 +15,27 @@ var firstAndPikeStore = {
   cookiesPerHour: function() {
     return parseInt(this.avgCookiesPerCust * this.avgCustPerHour());
   },
+  // loop through each hour
   salesPerHour: function() {
     for (var i = 0; i < hours.length; i++) {
-      this.results.push(this.cookiesPerHour());
+      this.hourlySales.push(this.cookiesPerHour());
+    }
+  },
+  // add to HTML
+  render: function() {
+    // access the ul
+    var ulEl = document.getElementById('first-and-pike');
+    // create list items
+    for (var j = 0; j < hours.length; j++) {
+      var liEl = document.createElement('li');
+      // give content
+      liEl.textContent = hours[j] + ': ' + this.hourlySales[j] + ' cookies';
+      // append li
+      ulEl.appendChild(liEl);
     }
   }
 };
+// run hourly sales method to generate hourly sales array
 firstAndPikeStore.salesPerHour();
+// render list
+firstAndPikeStore.render();
