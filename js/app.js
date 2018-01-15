@@ -42,14 +42,10 @@ var firstAndPikeStore = {
     ulEl.appendChild(liEl);
   }
 };
-// run hourly sales method to generate hourly sales array
-firstAndPikeStore.salesPerHour();
-// render list
-firstAndPikeStore.render();
 
 var seatacAirportStore = {
-  minHourlyCust: 3, 
-  maxHourlyCust: 24, 
+  minHourlyCust: 3,
+  maxHourlyCust: 24,
   avgCookiesPerCust: 1.2,
   hourlySales: [],
   total: 0,
@@ -60,7 +56,7 @@ var seatacAirportStore = {
     return parseInt(this.avgCookiesPerCust * this.avgCustPerHour());
   },
   salesPerHour: function() {
-    for (var i=0; i < hours.length; i++) {
+    for (var i = 0; i < hours.length; i++) {
       var cookies = this.cookiesPerHour();
       this.hourlySales.push(cookies);
       this.total += cookies;
@@ -73,8 +69,50 @@ var seatacAirportStore = {
       liEl.textContent = hours[j] + ': ' + this.hourlySales[j] + ' cookies';
       ulEl.appendChild(liEl);
     }
+    liEl = document.createElement('li');
+    liEl.textContent = 'Total: ' + this.total;
+    ulEl.appendChild(liEl);
   }
 };
 
+var seattleCenterStore = {
+  minHourlyCust: 11,
+  maxHourlyCust: 38,
+  avgCookiesPerCust: 3.7,
+  hourlySales: [],
+  total: 0,
+  avgCookiesPerHour: function() {
+    return Math.ceil(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
+  },
+  cookiesPerHour: function() {
+    return parseInt(this.avgCookiesPerCust * this.avgCookiesPerHour());
+  },
+  salesPerHour: function() {
+    for (var i = 0; i < hours.length; i++) {
+      var cookies = this.cookiesPerHour();
+      this.hourlySales.push(cookies);
+      this.total += cookies;
+    }
+  },
+  render: function() {
+    var ulEl = document.getElementById('seattle-center');
+    for (var j = 0; j < hours.length; j++) {
+      var liEl = document.createElement('li');
+      liEl.textContent = hours[j] + ': ' + this.hourlySales[j] + ' cookies';
+      ulEl.appendChild(liEl);
+    }
+    liEl = document.createElement('li');
+    liEl.textContent = 'Total: ' + this.total;
+    ulEl.appendChild(liEl);
+  }
+};
+
+// run hourly sales method to generate hourly sales array
+firstAndPikeStore.salesPerHour();
+// render list
+firstAndPikeStore.render();
+// run rest of the stores
 seatacAirportStore.salesPerHour();
 seatacAirportStore.render();
+seattleCenterStore.salesPerHour();
+seattleCenterStore.render();
