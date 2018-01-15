@@ -6,8 +6,10 @@ var firstAndPikeStore = {
   minHourCust: 23,
   maxHourCust: 65,
   avgCookiesPerCust: 6.3,
-  randomNum: function() {
+  avgCustPerHour: function() {
     return Math.ceil(Math.random() * (this.maxHourCust - this.minHourCust) + this.minHourCust);
+  },
+  cookiesPerHour: function() {
+    return parseInt(this.avgCookiesPerCust * this.avgCustPerHour());
   }
-}
-firstAndPikeStore.randomNum();
+};
