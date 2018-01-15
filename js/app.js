@@ -6,6 +6,7 @@ var firstAndPikeStore = {
   minHourCust: 23,
   maxHourCust: 65,
   avgCookiesPerCust: 6.3,
+  results: [],
   //random number generated for average customers per hour
   avgCustPerHour: function() {
     return Math.ceil(Math.random() * (this.maxHourCust - this.minHourCust) + this.minHourCust);
@@ -14,11 +15,10 @@ var firstAndPikeStore = {
   cookiesPerHour: function() {
     return parseInt(this.avgCookiesPerCust * this.avgCustPerHour());
   },
-  // hourly results in an array
-  
+  salesPerHour: function() {
+    for (var i = 0; i < hours.length; i++) {
+      this.results.push(this.cookiesPerHour());
+    }
+  }
 };
-
-var results = [];
-for (var i = 0; i < hours.length; i++) {
-  results.push(firstAndPikeStore.cookiesPerHour());
-}
+firstAndPikeStore.salesPerHour();
