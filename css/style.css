@@ -1,0 +1,49 @@
+/* colors; 
+old rose: #BC543B
+peru: #C6915D
+sienna: #A46846
+black: #36342C
+silver: #D0C9C2 */
+
+a:link, a:visited, a:active {
+  color: #D0C9C2;
+  text-decoration: underline;
+}
+
+body {
+  background-color: #36342C;
+  color: #D0C9C2;
+  font-family: Georgia, serif;
+  padding: 30px;
+  font-size: 20px;
+}
+
+h1, h2, h3 {
+  color: #BC543B;
+  font-family: Helvetica, sans-serif;
+  font-size: 80px;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 65px;
+}
+
+h3 {
+  font-size: 50px;
+}
+
+ul {
+  display: block;
+  list-style-position: inside;
+  list-style-type: disc;
+  padding: 10px;
+}
+
+li {
+  padding: 5px;
+}
+
+.highlight {
+  font-family: 'Courgette', cursive;
+}
