@@ -5,6 +5,10 @@ sienna: #A46846
 black: #36342C
 silver: #D0C9C2 */
 
+* {
+  font-size: 20px;
+}
+
 a:link, a:visited, a:active {
   color: #C6915D;
   text-decoration: underline;
@@ -15,7 +19,6 @@ body {
   color: #D0C9C2;
   font-family: Georgia, serif;
   padding: 30px;
-  font-size: 20px;
 }
 
 img, nav {
@@ -66,6 +69,23 @@ ul {
 
 li {
   padding: 5px;
+}
+
+table {
+	border: 5px solid #C6915D;
+	empty-cells: hide;
+}
+
+td, th {
+  border: 2px solid #C6915D;
+  padding: 5px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+th {
+  font-weight: bold;
+  background-color: #BC543B;
 }
 
 .highlight {

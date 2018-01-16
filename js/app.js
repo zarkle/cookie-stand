@@ -31,16 +31,26 @@ Store.prototype.salesPerHour = function() {
 
 Store.prototype.render = function() {
   this.salesPerHour();
+  // create table row
   var trEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
-  tdEl.textContent = this.location;
-  trEl.appendChild(tdEl);
+  // create location cell (row header), give content
+  var thEl = document.createElement('th');
+  thEl.textContent = this.location;
+  trEl.appendChild(thEl);
+  // create sales projections for each hour, give content
   for (var i = 0; i < this.hourlySales.length; i++) {
-    tdEl = document.createElement('td');
+    var tdEl = document.createElement('td');
     tdEl.textContent = this.hourlySales[i];
     trEl.appendChild(tdEl);
   }
+  // create total cell for each location, give content
+  tdEl = document.createElement('td');
+  tdEl.textContent = this.totalCookies;
+  trEl.appendChild(tdEl);
+  // add cells to row
   salesTable.appendChild(trEl);
+  // create total row (total of each hour)
+
 };
 
 function makeHeaderRow() {
@@ -53,6 +63,9 @@ function makeHeaderRow() {
     thEl.textContent = hours[i];
     trEl.appendChild(thEl);
   }
+  thEl = document.createElement('th');
+  thEl.textContent = 'Total';
+  trEl.appendChild(thEl);
   salesTable.appendChild(trEl);
 }
 
