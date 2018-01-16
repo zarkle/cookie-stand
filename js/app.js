@@ -1,49 +1,45 @@
 'use strict';
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+// var allStores = [];
+// var storeTable = document.getElementById('table');
 
-var firstAndPikeStore = {
-  minHourlyCust: 23,
-  maxHourlyCust: 65,
-  avgCookiesPerCust: 6.3,
-  hourlySales: [],
-  total: 0,
-  //random number generated for average customers per hour
-  avgCustPerHour: function() {
-    return Math.ceil(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
-  },
-  // projected cookies per hour
-  cookiesPerHour: function() {
-    return Math.round(this.avgCookiesPerCust * this.avgCustPerHour());
-  },
-  // loop through each hour and add to total
-  salesPerHour: function() {
-    for (var i = 0; i < hours.length; i++) {
-      var cookies = this.cookiesPerHour();
-      this.hourlySales.push(cookies);
-      this.total += cookies;
-    }
-  },
-  // add to HTML
-  render: function() {
-    // run hourly sales method to generate hourly sales array
-    firstAndPikeStore.salesPerHour();
-    // access the ul
-    var ulEl = document.getElementById('first-and-pike');
-    // create list items
-    for (var j = 0; j < hours.length; j++) {
-      var liEl = document.createElement('li');
-      // give content
-      liEl.textContent = hours[j] + ': ' + this.hourlySales[j] + ' cookies';
-      // append li
-      ulEl.appendChild(liEl);
-    }
-    // create total list item
-    liEl = document.createElement('li');
-    liEl.textContent = 'Total: ' + this.total + ' cookies';
-    ulEl.appendChild(liEl);
+function Store(minHourlyCust, maxHourlyCust, avgCookiesPerCust) {
+  this.minHourlyCust = minHourlyCust;
+  this.maxHourlyCust = maxHourlyCust;
+  this.avgCookiesPerCust = avgCookiesPerCust;
+  this.hourlySales = [];
+  this.totalCookies = 0;
+}
+
+Store.prototype.avgCustPerHour = function() {
+  return Math.ceil(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
+};
+
+Store.prototype.cookiesPerHour = function() {
+  return Math.round(this.avgCookiesPerCust * this.avgCustPerHour());
+};
+
+Store.prototype.salesPerHour = function() {
+  for (var i = 0; i < hours.length; i++) {
+    var cookies = this.cookiesPerHour();
+    this.hourlySales.push(cookies);
+    this.totalCookies += cookies;
   }
 };
+
+Store.prototype.render = function() {
+  this.salesPerHour();
+  var ulEl = document.getElementById('first-and-pike');
+  for (var j = 0; j < hours.length; j++) {
+    var liEl = document.createElement('li');
+    liEl.textContent = hours[j] + ': ' + this.hourlySales[j] + ' cookies';
+    ulEl.appendChild(liEl);
+  }
+  liEl = document.createElement('li');
+  liEl.textContent = 'Total: ' + this.totalCookies + ' cookies';
+  ulEl.appendChild(liEl);
+  };
 
 var seatacAirportStore = {
   minHourlyCust: 3,
@@ -176,6 +172,8 @@ var alkiStore = {
     ulEl.appendChild(liEl);
   }
 };
+
+var firstAndPikeStore = new Store(23, 65, 6,3);
 
 firstAndPikeStore.render();
 seatacAirportStore.render();
