@@ -1,5 +1,7 @@
 # cookie-stand
-Week 2 Project for Code 201 
+Week 2 Project for Code 201
+
+Used MIT License (public)
 
 Used Google Fonts for fonts
 
