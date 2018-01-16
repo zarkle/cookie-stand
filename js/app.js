@@ -38,7 +38,7 @@ var firstAndPikeStore = {
     }
     // create total list item
     liEl = document.createElement('li');
-    liEl.textContent = 'Total: ' + this.total;
+    liEl.textContent = 'Total: ' + this.total + ' cookies';
     ulEl.appendChild(liEl);
   }
 };
@@ -70,7 +70,7 @@ var seatacAirportStore = {
       ulEl.appendChild(liEl);
     }
     liEl = document.createElement('li');
-    liEl.textContent = 'Total: ' + this.total;
+    liEl.textContent = 'Total: ' + this.total + ' cookies';
     ulEl.appendChild(liEl);
   }
 };
@@ -102,7 +102,7 @@ var seattleCenterStore = {
       ulEl.appendChild(liEl);
     }
     liEl = document.createElement('li');
-    liEl.textContent = 'Total: ' + this.total;
+    liEl.textContent = 'Total: ' + this.total + ' cookies';
     ulEl.appendChild(liEl);
   }
 };
@@ -134,7 +134,7 @@ var capitolHillStore = {
       ulEl.appendChild(liEl);
     }
     liEl = document.createElement('li');
-    liEl.textContent = 'Total: ' + this.total;
+    liEl.textContent = 'Total: ' + this.total + ' cookies';
     ulEl.appendChild(liEl);
   }
 };
@@ -166,7 +166,7 @@ var alkiStore = {
       ulEl.appendChild(liEl);
     }
     liEl = document.createElement('li');
-    liEl.textContent = 'Total: ' + this.total;
+    liEl.textContent = 'Total: ' + this.total + ' cookies';
     ulEl.appendChild(liEl);
   }
 };
