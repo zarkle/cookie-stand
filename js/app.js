@@ -30,10 +30,16 @@ Store.prototype.salesPerHour = function() {
 };
 
 Store.prototype.render = function() {
+  this.salesPerHour();
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
   tdEl.textContent = this.location;
   trEl.appendChild(tdEl);
+  for (var i = 0; i < this.hourlySales.length; i++) {
+    tdEl = document.createElement('td');
+    tdEl.textContent = this.hourlySales[i];
+    trEl.appendChild(tdEl);
+  }
   salesTable.appendChild(trEl);
 };
 
