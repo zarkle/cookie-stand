@@ -14,12 +14,9 @@ function Store(location, minHourlyCust, maxHourlyCust, avgCookiesPerCust) {
   allStores.push(this);
 }
 
-Store.prototype.avgCustPerHour = function() {
-  return Math.ceil(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
-};
-
 Store.prototype.cookiesPerHour = function() {
-  return Math.round(this.avgCookiesPerCust * this.avgCustPerHour());
+  var avgCustPerHour = Math.ceil(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust);
+  return Math.round(this.avgCookiesPerCust * avgCustPerHour);
 };
 
 Store.prototype.salesPerHour = function() {
