@@ -47,8 +47,6 @@ Store.prototype.render = function() {
   trEl.appendChild(tdEl);
   // add cells to row
   salesTable.appendChild(trEl);
-  // create total row (total of each hour)
-
 };
 
 function makeHeaderRow() {
@@ -62,7 +60,7 @@ function makeHeaderRow() {
     trEl.appendChild(thEl);
   }
   thEl = document.createElement('th');
-  thEl.textContent = 'Total';
+  thEl.textContent = 'Daily Location Total';
   trEl.appendChild(thEl);
   salesTable.appendChild(trEl);
 }
@@ -74,20 +72,20 @@ function makeFooterRow() {
   trEl.appendChild(thEl);
   for (var i = 0; i < hours.length; i++) {
     var hourlyTotal = 0;
-    thEl = document.createElement('th');
+    var tdEl = document.createElement('td');
     for (var j = 0; j < allStores.length; j++) {
       hourlyTotal += allStores[j].hourlySales[i];
-      thEl.textContent = hourlyTotal;
-      trEl.appendChild(thEl);
+      tdEl.textContent = hourlyTotal;
+      trEl.appendChild(tdEl);
     }
   }
-  thEl = document.createElement('th');
+  tdEl = document.createElement('td');
   var totalTotal = 0;
   for (var k = 0; k < allStores.length; k++) {
     totalTotal += allStores[k].totalCookies;
   }
-  thEl.textContent = totalTotal;
-  trEl.appendChild(thEl);
+  tdEl.textContent = totalTotal;
+  trEl.appendChild(tdEl);
   salesTable.appendChild(trEl);
 }
 

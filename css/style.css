@@ -6,7 +6,7 @@ black: #36342C
 silver: #D0C9C2 */
 
 * {
-  font-size: 20px;
+  font-size: 15px;
 }
 
 a:link, a:visited, a:active {
@@ -34,7 +34,6 @@ nav {
 
 h1, h2, h3, h4, h5 {
   color: #BC543B;
-  font-family: Helvetica, sans-serif;
   font-size: 80px;
   font-weight: bold;
   padding: 10px 0px;
@@ -81,6 +80,7 @@ td, th {
   padding: 5px;
   text-align: center;
   vertical-align: middle;
+  font-family: Helvetica, sans-serif;
 }
 
 th {
@@ -103,9 +103,4 @@ th {
   justify-content: space-evenly;
   width: 33%;
   text-align: center;
-}
-
-#data li {
-  font-family: Helvetica, sans-serif;
-  font-size: 15px;
 }
