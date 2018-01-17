@@ -85,7 +85,11 @@ function makeFooterRow() {
     }
   }
   thEl = document.createElement('th');
-  thEl.textContent = 'Total';
+  var totalTotal = 0;
+  for (var k = 0; k < allStores.length; k++) {
+    totalTotal += allStores[k].totalCookies;
+  }
+  thEl.textContent = totalTotal;
   trEl.appendChild(thEl);
   salesTable.appendChild(trEl);
 }
