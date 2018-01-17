@@ -49,6 +49,12 @@ Store.prototype.render = function() {
   salesTable.appendChild(trEl);
 };
 
+function renderAllStores() {
+  for(var i in allStores) {
+    allStores[i].render();
+  }
+}
+
 function makeHeaderRow() {
   var trEl = document.createElement('tr');
   var thEl = document.createElement('th');
@@ -96,9 +102,5 @@ var capitolHillStore = new Store('Capitol Hill', 20, 38, 2.3);
 var alkiStore = new Store('Alki', 2, 16, 4.6);
 
 makeHeaderRow();
-firstAndPikeStore.render();
-seatacAirportStore.render();
-seattleCenterStore.render();
-capitolHillStore.render();
-alkiStore.render();
+renderAllStores();
 makeFooterRow();
