@@ -3,6 +3,7 @@
 var hours = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm'];
 var allStores = [];
 var salesTable = document.getElementById('sales-table');
+var locationForm = document.getElementById('store-form');
 
 function Store(location, minHourlyCust, maxHourlyCust, avgCookiesPerCust) {
   this.location = location;
@@ -20,6 +21,7 @@ Store.prototype.cookiesPerHour = function() {
 };
 
 Store.prototype.salesPerHour = function() {
+  // this.hourlySales.length = 0;
   for (var i = 0; i < hours.length; i++) {
     var cookies = this.cookiesPerHour();
     this.hourlySales.push(cookies);
@@ -50,7 +52,9 @@ Store.prototype.render = function() {
 };
 
 function renderAllStores() {
-  for(var i in allStores) {
+  for (var i in allStores) {
+    allStores[i].hourlySales.length = 0;
+
     allStores[i].render();
   }
 }
@@ -95,11 +99,28 @@ function makeFooterRow() {
   salesTable.appendChild(trEl);
 }
 
-var firstAndPikeStore = new Store('1st and Pike', 23, 65, 6.3);
-var seatacAirportStore = new Store('SeaTac Airport', 3, 24, 1.2);
-var seattleCenterStore = new Store ('Seattle Center', 11, 38, 3.7);
-var capitolHillStore = new Store('Capitol Hill', 20, 38, 2.3);
-var alkiStore = new Store('Alki', 2, 16, 4.6);
+function addNewLocation(event) {
+  event.preventDefault();
+  var newLocation = event.target.newLocation.value;
+  var newMinHourlyCust = event.target.minHourlyCust.value;
+  var newMaxHourlyCust = event.target.maxHourlyCust.value;
+  var newAvgCookiesPerCust = event.target.avgCookiesPerCust.value;
+
+  new Store(newLocation, newMinHourlyCust, newMaxHourlyCust, newAvgCookiesPerCust);
+
+  salesTable.innerHTML = '';
+  makeHeaderRow();
+  renderAllStores();
+  makeFooterRow();
+}
+
+new Store('1st and Pike', 23, 65, 6.3);
+new Store('SeaTac Airport', 3, 24, 1.2);
+new Store ('Seattle Center', 11, 38, 3.7);
+new Store('Capitol Hill', 20, 38, 2.3);
+new Store('Alki', 2, 16, 4.6);
+
+locationForm.addEventListener('submit', addNewLocation);
 
 makeHeaderRow();
 renderAllStores();
