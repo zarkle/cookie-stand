@@ -93,9 +93,16 @@ th {
   color: #C6915D;
 }
 
+#nav-items {
+  display: inline-flex;
+  width: 500px;
+}
+
 #nav-items li {
-  display: inline;
   list-style-type: none;
+  justify-content: space-evenly;
+  width: 33%;
+  text-align: center;
 }
 
 #data li {
