@@ -53,8 +53,8 @@ Store.prototype.render = function() {
 
 function renderAllStores() {
   for (var i in allStores) {
+    //need to reset hourlySales array
     allStores[i].hourlySales.length = 0;
-
     allStores[i].render();
   }
 }
