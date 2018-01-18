@@ -28,7 +28,7 @@ img, nav {
 }
 
 nav {
-  width: 500px;
+  width: 800px;
   margin: 0 auto;
 }
 
@@ -130,12 +130,12 @@ button {
 
 #nav-items {
   display: inline-flex;
-  width: 500px;
+  width: 100%;
 }
 
 #nav-items li {
   list-style-type: none;
   justify-content: space-evenly;
-  width: 33%;
+  width: 15%;
   text-align: center;
 }
