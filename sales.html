@@ -9,6 +9,27 @@
   <body>
     <h1>Sales Projections</h1>
     <table id="sales-table"></table>
+
+    <form id="store-form">
+      <fieldset>
+        <legend>Add Another Location</legend>
+
+        <label for="newLocation">New Store Location:</label>
+        <input name = "newLocation" type="text" required />
+        
+        <label for="minHourlyCust">Minimum Hourly Customers:</label>
+        <input name = "minHourlyCust" type="number" min="0" step="1" required />
+        
+        <label for="maxHourlyCust">Maximum Hourly Customers:</label>
+        <input name = "maxHourlyCust" type="number" min="0" step="1" required />
+        
+        <label for="avgCookiesPerCust">Average Cookies Purchased Per Customer:</label>
+        <input name = "avgCookiesPerCust" type="number" min="0" step="0.1" required />
+
+        <button id="add-location">Add Location</button>
+      </fieldset>
+    </form>
+
     <p><a href="index.html">Back to Home</a></p>
     <script type="text/javascript" src="js/app.js"></script>
   </body>

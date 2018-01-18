@@ -72,7 +72,9 @@ li {
 
 table {
 	border: 5px solid #C6915D;
-	empty-cells: hide;
+  empty-cells: hide;
+  margin-bottom: 1em;
+  width: 100%
 }
 
 td, th {
@@ -86,6 +88,39 @@ td, th {
 th {
   font-weight: bold;
   background-color: #BC543B;
+}
+
+form {
+  padding: 10px 0px;
+}
+
+fieldset {
+  min-width: min-content;
+  max-width: 30%;
+  border: 1px solid;
+}
+
+legend {
+  color: #C6915D;
+  margin-left: 25px;
+  display: block;
+}
+
+label {
+  color: #C6915D;
+  display: block;
+  margin: 5px;
+}
+
+input {
+  margin: 5px;
+}
+
+button {
+  display: block;
+  color: #BC543B;
+  background-color: #D0C9C2;
+  margin: 5px;
 }
 
 .highlight {
