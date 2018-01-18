@@ -9,4 +9,7 @@ CSS Reset from Meyer Web
 
 Used https://www.canva.com/color-palette/ for color scheme to match salmon photo
 
+Used https://css-tricks.com/snippets/css/complete-guide-grid/ to format grid layout
+
+Content from: https://www.lipsum.com/
 
