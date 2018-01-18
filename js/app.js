@@ -102,8 +102,8 @@ function makeFooterRow() {
 function addNewLocation(event) {
   event.preventDefault();
   var newLocation = event.target.newLocation.value;
-  var newMinHourlyCust = event.target.minHourlyCust.value;
-  var newMaxHourlyCust = event.target.maxHourlyCust.value;
+  var newMinHourlyCust = parseInt(event.target.minHourlyCust.value);
+  var newMaxHourlyCust = parseInt(event.target.maxHourlyCust.value);
   var newAvgCookiesPerCust = event.target.avgCookiesPerCust.value;
 
   new Store(newLocation, newMinHourlyCust, newMaxHourlyCust, newAvgCookiesPerCust);
