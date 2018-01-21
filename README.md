@@ -1,5 +1,5 @@
 # cookie-stand
-Week 2 Project for Code 201
+Week 2 Project for Code Fellows Code 201 course.
 
 Used MIT License (public)
 

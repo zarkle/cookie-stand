@@ -5,25 +5,26 @@ sienna: #A46846
 black: #36342C
 silver: #D0C9C2 */
 
-* {
-  font-size: 15px;
-}
-
 a:link, a:visited, a:active {
   color: #C6915D;
   text-decoration: underline;
 }
 
 body {
+  font-size: 15px;
+  font-family: 'Georgia', serif;
   background-color: #36342C;
   color: #D0C9C2;
-  font-family: Georgia, serif;
   padding: 30px;
+  width: 1200px;
+  margin: auto;
+  line-height: 1.25;
 }
 
 p {
   margin: 1em;
 }
+
 img {
   display: block;
   margin: 0 auto;
@@ -81,7 +82,7 @@ table {
 	border: 5px solid #C6915D;
   empty-cells: hide;
   margin-bottom: 1em;
-  width: 100%
+  width: 100%;
 }
 
 td, th {
@@ -159,20 +160,6 @@ button {
   grid-row: 1;
   /* span: 3; */
 }
-
-/* #info-grid-row2 {
-  grid-column: 1;
-  grid-row: 2;
-  justify-self: center;
-  align-self: center;
-}
-
-#info-grid-row3 {
-  grid-column: 1;
-  grid-row: 3;
-  justify-self: center;
-  align-self: center;
-} */
 
 #column1-row2 {
   grid-row: 2;
