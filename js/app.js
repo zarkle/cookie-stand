@@ -107,7 +107,11 @@ function addNewLocation(event) {
   var newAvgCookiesPerCust = event.target.avgCookiesPerCust.value;
 
   new Store(newLocation, newMinHourlyCust, newMaxHourlyCust, newAvgCookiesPerCust);
-
+  
+  //two ways to reset form field after submit
+  locationForm.reset();
+  // event.target.reset();
+  
   salesTable.innerHTML = '';
   makeHeaderRow();
   renderAllStores();
